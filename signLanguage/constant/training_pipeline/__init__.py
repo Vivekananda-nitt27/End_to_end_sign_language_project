@@ -12,5 +12,6 @@ DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 
 DATA_DOWNLOAD_URL: str = (
-    "https://github.com/entbappy/Branching-tutorial/raw/master/Sign_language_data.zip"
+    "https://github.com/Vivekananda-nitt27/End_to_end_sign_language_project/raw/main/data/sign_language_data.zip"
 )
+
