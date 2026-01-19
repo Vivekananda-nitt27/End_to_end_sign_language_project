@@ -208,3 +208,66 @@ __marimo__/
 
 artifacts/*
 log/*
+
+
+# =========================
+# YOLOv5 specific
+# =========================
+
+# Training outputs
+yolov5/runs/
+
+# Model weights
+*.pt
+
+# Datasets (never push raw data)
+sign_data/
+datasets/
+data/
+
+# TensorBoard
+events.out.tfevents*
+
+# Roboflow metadata (optional)
+.roboflow/
+
+# Python
+__pycache__/
+*.pyc
+.env
+.venv
+env/
+venv/
+
+# Artifacts
+artifacts/
+*.pt
+*.pth
+*.onnx
+
+# Logs
+logs/
+*.log
+
+# YOLO cache
+yolov5/runs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+*.tmp
+*.temp
+
+# YOLOv5 repo
+yolov5/
+sign-language-deployment/yolov5/
+
+# Test files
+test*.jpg
+scripts/test*.jpg

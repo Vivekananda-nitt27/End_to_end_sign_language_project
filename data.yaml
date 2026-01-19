@@ -1,0 +1,8 @@
+path: C:/sign_data/sign_language.v4i.yolov5pytorch
+
+train: train/images
+val: test/images
+test: test/images
+
+nc: 6
+names: ["Hello", "IloveYou", "No", "Please", "Thanks", "Yes"]

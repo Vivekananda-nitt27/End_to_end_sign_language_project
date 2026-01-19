@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Language Detector</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 30px 40px;
+      width: 420px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #4b3f72;
+    }
+
+    .card {
+      background: #f7f7fb;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #e2e2f0;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #5a4fcf;
+      font-size: 18px;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin-bottom: 12px;
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #5a4fcf, #7b6df3);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(90, 79, 207, 0.4);
+    }
+
+    pre {
+      background: #1e1e2f;
+      color: #eaeaff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>🤟 Sign Language Detection</h2>
+
+    <div class="card">
+      <h3>Upload Image</h3>
+      <input type="file" id="imageInput">
+      <button onclick="uploadImage()">Predict Image</button>
+      <pre id="imageResult"></pre>
+    </div>
+
+    <div class="card">
+      <h3>Upload Video</h3>
+      <input type="file" id="videoInput">
+      <button onclick="uploadVideo()">Predict Video</button>
+      <pre id="videoResult"></pre>
+    </div>
+
+    <footer>Powered by your ML backend 🚀</footer>
+  </div>
+
+  <script>
+    async function uploadImage() {
+      const file = document.getElementById("imageInput").files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("http://localhost:8000/predict-image", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      document.getElementById("imageResult").innerText =
+        JSON.stringify(result, null, 2);
+    }
+
+    async function uploadVideo() {
+      const file = document.getElementById("videoInput").files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("http://localhost:8000/predict-video", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      document.getElementById("videoResult").innerText =
+        JSON.stringify(result, null, 2);
+    }
+  </script>
+</body>
+</html>

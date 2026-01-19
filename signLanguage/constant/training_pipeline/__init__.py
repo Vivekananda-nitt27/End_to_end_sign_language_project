@@ -28,3 +28,13 @@ DATA_VALIDATION_ALL_REQUIRED_FILES = [
     "test",
     "data.yaml"
 ]
+
+
+
+"""
+MODEL PUSHER related constant start with MODEL_PUSHER var name
+"""
+
+BUCKET_NAME = "sign-lang-2026-vivek"
+S3_MODEL_NAME = "best.pt"
+
